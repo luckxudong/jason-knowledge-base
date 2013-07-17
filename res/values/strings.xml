@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">jason-knowledge-base</string>
+    <string name="delete_selected">删除</string>
+    <string name="archive_selected">归档</string>
 </resources>
