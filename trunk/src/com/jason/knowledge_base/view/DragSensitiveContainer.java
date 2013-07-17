@@ -34,12 +34,12 @@ public class DragSensitiveContainer implements View.OnDragListener {
 
     public void startDrag(View dragView, View dragContainerView, ClipData data,
                           View.DragShadowBuilder shadowBuilder, Object myLocalState) {
-        setupDragContainer(dragContainerView);
+        bindDragListener(dragContainerView);
 
         dragView.startDrag(data, shadowBuilder, myLocalState, 0);
     }
 
-    private void setupDragContainer(View dragContainerView) {
+    public void bindDragListener(View dragContainerView) {
 
         if (!(dragContainerView instanceof ViewGroup)) {
             if (dragContainerView.isFocusable()) {
@@ -54,7 +54,7 @@ public class DragSensitiveContainer implements View.OnDragListener {
         for (int i = 0; i < childCount; i++) {
             View view = viewGroup.getChildAt(i);
 
-            setupDragContainer(view);
+            bindDragListener(view);
         }
 
     }
