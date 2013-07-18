@@ -44,10 +44,12 @@ public class ListViewHeadAndFooterActivity extends Activity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        if (footer.getVisibility() != View.VISIBLE) {
-            footer.setVisibility(View.VISIBLE);
+        View footerContent = footer.findViewById(R.id.footer_content);
+
+        if (footerContent.getVisibility() != View.VISIBLE) {
+            footerContent.setVisibility(View.VISIBLE);
         } else {
-            footer.setVisibility(View.GONE);
+            footerContent.setVisibility(View.GONE);
         }
     }
 }
