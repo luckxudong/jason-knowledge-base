@@ -15,4 +15,12 @@
         <item name="android:shadowColor">#FFD7C3A5</item>
     </style>
 
+    <style name="NormalButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_selector</item>
+        <item name="android:padding">@dimen/x_large_spacing</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>
