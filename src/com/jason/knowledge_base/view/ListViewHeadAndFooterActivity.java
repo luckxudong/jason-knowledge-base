@@ -3,9 +3,11 @@ package com.jason.knowledge_base.view;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.jason.knowledge_base.R;
+import com.jason.knowledge_base.util.EasyToast;
 
 /**
  * User: jason
@@ -38,9 +40,10 @@ public class ListViewHeadAndFooterActivity extends Activity implements View.OnCl
 
         listView.setAdapter(adapter);
 
+        listView.setOnScrollListener(new ScrollBottomDetector());
+
         findViewById(R.id.btn).setOnClickListener(this);
     }
-
 
     @Override
     public void onClick(View v) {
@@ -52,4 +55,22 @@ public class ListViewHeadAndFooterActivity extends Activity implements View.OnCl
             footerContent.setVisibility(View.GONE);
         }
     }
+
+    private class ScrollBottomDetector implements AbsListView.OnScrollListener {
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            if (view.getLastVisiblePosition() == view.getCount() - 1) {
+                EasyToast.show(
+                        ListViewHeadAndFooterActivity.this,
+                        "At bottom now !"
+                );
+            }
+        }
+
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        }
+    }
+
 }
